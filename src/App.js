@@ -6,6 +6,7 @@ import Home from './components/home';
 import Header from './components/header';
 import User from "./components/user";
 import Admin from "./components/admin";
+import Owner from "./components/Owner";
 import {
   BrowserRouter as Router,
   Switch,
@@ -44,13 +45,19 @@ function App() {
               setErrorMessage={setErrorMessage}
             />
     </Route>
+
     <Route exact path="/user">
     {facade.hasUserAccess('user', loggedIn) && 
               <User facade={facade} setErrorMessage={setErrorMessage} />}
     </Route>
+
     <Route exact path="/admin">
     {facade.hasUserAccess('admin', loggedIn) && 
               <Admin facade={facade} setErrorMessage={setErrorMessage} />}
+    </Route>
+
+    <Route path="/owner">
+      <Owner facade={facade} setErrorMessage={setErrorMessage} />
     </Route>
   </Switch>
     </div>
