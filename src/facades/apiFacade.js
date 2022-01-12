@@ -36,6 +36,23 @@ const login = (user, password, setLoggedIn, setErrorMessage) =>
         });
 }
 
+const createBoat = (name, brand, make, SetErrorMessage) =>
+{
+    const options = makeOptions("POST", true, { boatName: name, boatBrand: brand, boatMake: make }); //True add's the token
+    return fetch(URL + "/api/harbour/create/boat", options)
+        .then(handleHttpErrors)
+        //.then((data) => updateAction(data))
+        .catch(err =>
+        {
+            if (err.status)
+            {
+                console.log(err)
+                err.fullError.then(e => SetErrorMessage(e.code + ": " + e.message))
+            }
+            else { SetErrorMessage("Network error"); }
+        })
+}
+
 const fetchData = (endpoint, updateAction, SetErrorMessage) =>
 {
     const options = makeOptions("GET", true); //True add's the token
@@ -117,6 +134,7 @@ const fetchData = (endpoint, updateAction, SetErrorMessage) =>
         setToken,
         getToken,
         loggedIn,
+        createBoat,
         login,
         logout,
         getUserRoles,

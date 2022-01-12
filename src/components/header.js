@@ -18,6 +18,7 @@ export default function Header() {
         <li><NavLink activeClassName="active" to="/user">User</NavLink></li>
         <li><NavLink activeClassName="active" to="/admin">Admin</NavLink></li>
         <li><NavLink activeClassName="active" to="/owner">Owner</NavLink></li>
+        <li><NavLink activeClassName="active" to="/create">Owner</NavLink></li>
       </ul>
     </div>
     );

@@ -17,6 +17,7 @@ import {
   NavLink,
   Prompt
 } from "react-router-dom";
+import Boat from "./components/Boat";
 
  
 
@@ -58,6 +59,10 @@ function App() {
 
     <Route path="/owner">
       <Owner facade={facade} setErrorMessage={setErrorMessage} />
+    </Route>
+
+    <Route path="/create">
+      <Boat facade={facade} setErrorMessage={setErrorMessage} />
     </Route>
   </Switch>
     </div>
